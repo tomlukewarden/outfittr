@@ -10,6 +10,11 @@ export default function TabOneScreen() {
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Edit Profile</Text>
       </TouchableOpacity>
+
+
+      <View style={styles.container2}>
+        <Text style={styles.title}>My Saved Outfits</Text>
+      </View>
     </View>
   );
 }
@@ -24,6 +29,8 @@ const styles = StyleSheet.create({
   profileImage: {
     width: 100,
     height: 100,
+    borderWidth: 2,
+    borderColor: 'black',
     borderRadius: 50,
     marginBottom: 10,
   },
@@ -49,4 +56,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  container2: {
+    borderWidth: 2,
+    borderColor: 'black',
+    borderRadius: 5,
+    padding: 10,
+    marginTop: 10,
+    width: '90%',
+    height: '50%',
+  },
+  title:{
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  }
 });
