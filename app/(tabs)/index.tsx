@@ -1,14 +1,15 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Text, View } from '@/components/Themed';
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Image source={{ uri: 'https://via.placeholder.com/100' }} style={styles.profileImage} />
+      <Text style={styles.name}>John Doe</Text>
+      <Text style={styles.bio}>Software Developer | Fashion Enthusiast | Tech Lover</Text>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Edit Profile</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -18,14 +19,34 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 20,
   },
-  title: {
-    fontSize: 20,
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10,
+  },
+  name: {
+    fontSize: 24,
     fontWeight: 'bold',
+    marginBottom: 5,
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  bio: {
+    fontSize: 16,
+    color: 'gray',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
