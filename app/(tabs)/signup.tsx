@@ -1,27 +1,21 @@
 import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { Text, View } from '@/components/Themed';
-import { useNavigation } from '@react-navigation/native';
 
-export default function Login() {
-  const navigation = useNavigation(); 
-
+export default function Signup() {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>OUTFTTR</Text>
       <Text style={styles.welcome}>Welcome to OutFittr</Text>
-      <Text style={styles.header}>Sign In</Text>
+      <Text style={styles.header}>Sign Up</Text>
       
       <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#888" />
       <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#888" secureTextEntry />
       
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Sign In</Text>
+        <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
       
-      <Text style={styles.footer}>
-        Don't have an account?{' '}
-          <Text style={styles.footerLink}>Sign up</Text>
-      </Text>
+      <Text style={styles.footer}>Already have an account? <Text style={styles.footerLink}>Sign In</Text></Text>
     </View>
   );
 }
