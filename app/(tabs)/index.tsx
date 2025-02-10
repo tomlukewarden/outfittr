@@ -1,20 +1,21 @@
-import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { Text, View } from '@/components/Themed';
 
-export default function TabOneScreen() {
+export default function Login() {
   return (
     <View style={styles.container}>
-      <Image source={{ uri: 'https://via.placeholder.com/100' }} style={styles.profileImage} />
-      <Text style={styles.name}>John Doe</Text>
-      <Text style={styles.bio}>Software Developer | Fashion Enthusiast | Tech Lover</Text>
+      <Text style={styles.logo}>OUTFTTR</Text>
+      <Text style={styles.welcome}>Welcome to OutFittr</Text>
+      <Text style={styles.header}>Sign In</Text>
+      
+      <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#888" />
+      <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#888" secureTextEntry />
+      
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Edit Profile</Text>
+        <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
-
-
-      <View style={styles.container2}>
-        <Text style={styles.title}>My Saved Outfits</Text>
-      </View>
+      
+      <Text style={styles.footer}>Don't have an account? <Text style={styles.footerLink}>Sign up</Text></Text>
     </View>
   );
 }
@@ -25,49 +26,58 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    backgroundColor: '#f5f5f5',
   },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderWidth: 2,
-    borderColor: 'black',
-    borderRadius: 50,
+  logo: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 20,
+  },
+  welcome: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#555',
     marginBottom: 10,
   },
-  name: {
-    fontSize: 24,
+  header: {
+    fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  bio: {
-    fontSize: 16,
-    color: 'gray',
-    textAlign: 'center',
+    color: '#333',
     marginBottom: 20,
+  },
+  input: {
+    width: '100%',
+    padding: 12,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    marginBottom: 15,
+    fontSize: 16,
+    color: '#333',
   },
   button: {
     backgroundColor: '#007AFF',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    alignItems: 'center',
+    width: '100%',
+    marginTop: 10,
   },
   buttonText: {
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
   },
-  container2: {
-    borderWidth: 2,
-    borderColor: 'black',
-    borderRadius: 5,
-    padding: 10,
-    marginTop: 10,
-    width: '90%',
-    height: '50%',
+  footer: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 20,
   },
-  title:{
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  }
+  footerLink: {
+    color: '#007AFF',
+    textDecorationLine: 'underline',
+  },
 });
