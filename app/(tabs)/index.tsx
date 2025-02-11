@@ -1,89 +1,22 @@
-import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { Text, View } from '@/components/Themed';
-import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from './screens/login';
+import Signup from './screens/signup';
+import Profile from './screens/profile';
+import Swipe from './screens/swipe';
 
-export default function Login() {
-  const navigation = useNavigation(); 
+const Stack = createStackNavigator();
 
+export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.logo}>OUTFTTR</Text>
-      <Text style={styles.welcome}>Welcome to OutFittr</Text>
-      <Text style={styles.header}>Sign In</Text>
-      
-      <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#888" />
-      <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#888" secureTextEntry />
-      
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Sign In</Text>
-      </TouchableOpacity>
-      
-      <Text style={styles.footer}>
-        Don't have an account?{' '}
-          <Text style={styles.footerLink}>Sign up</Text>
-      </Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name='Profile' component={Profile} />
+        <Stack.Screen name='Swipe' component={Swipe} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    backgroundColor: '#f5f5f5',
-  },
-  logo: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 20,
-  },
-  welcome: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#555',
-    marginBottom: 10,
-  },
-  header: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 20,
-  },
-  input: {
-    width: '100%',
-    padding: 12,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    marginBottom: 15,
-    fontSize: 16,
-    color: '#333',
-  },
-  button: {
-    backgroundColor: '#007AFF',
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 8,
-    alignItems: 'center',
-    width: '100%',
-    marginTop: 10,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  footer: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 20,
-  },
-  footerLink: {
-    color: '#007AFF',
-    textDecorationLine: 'underline',
-  },
-});
