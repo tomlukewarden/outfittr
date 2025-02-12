@@ -1,21 +1,19 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
-
-export default function TabTwoScreen() {
+export default function Swipe() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Pick Today's Outfit</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+      <View style={styles.separator} />
 
+      {/* Outfit Categories */}
       <View style={styles.container2}>
-        <Text style={styles.item}>Hat/Headwear</Text>
-        <Text style={styles.item}>Top</Text>
-        <Text style={styles.item}>Bottom</Text>
-        <Text style={styles.item}>Shoes</Text>
-        <Text style={styles.item}>Accessories</Text>
+        {["Hat/Headwear", "Top", "Bottom", "Shoes", "Accessories"].map((item, index) => (
+          <TouchableOpacity key={index} style={styles.item}>
+            <Text>{item}</Text>
+          </TouchableOpacity>
+        ))}
       </View>
     </View>
   );
@@ -37,6 +35,7 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: '80%',
+    backgroundColor: '#ccc', // Added a background color to make it visible
   },
   container2: {
     flex: 1,
@@ -55,5 +54,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc', 
     borderRadius: 10, 
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
+

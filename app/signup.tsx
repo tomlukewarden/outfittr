@@ -1,7 +1,10 @@
 import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { Text, View } from '@/components/Themed';
+import { Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function Signup() {
+  const router = useRouter(); // ✅ Use Expo Router for navigation
+
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>OUTFTTR</Text>
@@ -14,8 +17,12 @@ export default function Signup() {
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
-      
-      <Text style={styles.footer}>Already have an account? <Text style={styles.footerLink}>Sign In</Text></Text>
+
+      {/* Navigate to Login */}
+      <Text style={styles.footer}>
+        Already have an account?  
+        <Text style={styles.footerLink} onPress={() => router.push('/login')}> Sign In</Text>
+      </Text>
     </View>
   );
 }

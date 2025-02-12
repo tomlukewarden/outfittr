@@ -1,9 +1,9 @@
 import { Button, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { Text, View } from '@/components/Themed';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function Login() {
-  const navigation = useNavigation(); 
+  const router = useRouter(); 
 
   return (
     <View style={styles.container}>
@@ -18,15 +18,13 @@ export default function Login() {
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>
       
-  
       <View style={styles.footer}>
-  <Text>Don't have an account?</Text>
-  <Button 
-    onPress={() => navigation.navigate('Signup')} 
-    title="Sign up" 
-  />
-</View>
-
+        <Text>Don't have an account?</Text>
+        <Button 
+          onPress={() => router.push('/signup')}
+          title="Sign up" 
+        />
+      </View>
     </View>
   );
 }
@@ -83,12 +81,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   footer: {
-    fontSize: 14,
-    color: '#666',
     marginTop: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   footerLink: {
     color: '#007AFF',
     textDecorationLine: 'underline',
+    marginLeft: 5,
   },
 });

@@ -1,16 +1,19 @@
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { Text, View } from '@/components/Themed';
+import { Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function Profile() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <Image source={{ uri: 'https://via.placeholder.com/100' }} style={styles.profileImage} />
       <Text style={styles.name}>John Doe</Text>
       <Text style={styles.bio}>Software Developer | Fashion Enthusiast | Tech Lover</Text>
-      <TouchableOpacity style={styles.button}>
+      
+      <TouchableOpacity style={styles.button} onPress={() => router.push('/edit-profile')}>
         <Text style={styles.buttonText}>Edit Profile</Text>
       </TouchableOpacity>
-
 
       <View style={styles.container2}>
         <Text style={styles.title}>My Saved Outfits</Text>
@@ -65,9 +68,9 @@ const styles = StyleSheet.create({
     width: '90%',
     height: '50%',
   },
-  title:{
+  title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
-  }
+  },
 });
